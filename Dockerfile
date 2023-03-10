@@ -21,9 +21,10 @@ RUN \
     nano \
     net-tools \
     netcat \
-    sudo && \
+    sudo \
     python3 \
-    python3-venv \
+    python3-venv\
+    build-essential gdb && \
   echo "**** install code-server ****" && \
   if [ -z ${CODE_RELEASE+x} ]; then \
     CODE_RELEASE=$(curl -sX GET https://api.github.com/repos/coder/code-server/releases/latest \
@@ -41,7 +42,7 @@ RUN \
     /config/* \
     /tmp/* \
     /var/lib/apt/lists/* \
-    /var/tmp/*
+    /var/tmp/* 
 
 # add local files
 COPY /root /
